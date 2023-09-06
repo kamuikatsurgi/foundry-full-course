@@ -1,9 +1,0 @@
-anvil - to run a local chain
-
-forge create <contractName> --interactive - to deploy the contract to localhost
-forge create <contractName> --rpc-url <RPC_URL> --private-key <PRIVATE_KEY> - to deploy the contract to a particular chain
-
-forge script script/DeploySimpleStorage.s.sol
-forge script script/DeploySimpleStorage.s.sol --rpc-url <RPC_URL> --broadcast --private-key <PRIVATE_KEY>
-
-cast --to-base <hex-value> to dec - convrt hex value to decimal
