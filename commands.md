@@ -18,6 +18,7 @@
 - forge coverage
 - forge test --fork-url $SEPOLIA_RPC_URL
 - forge test -m <test-function-name>
+- forge test --match-test testBobBalance
 - cast storage <contract-address> <slot-number>
 
 **_Cheat Codes_**
