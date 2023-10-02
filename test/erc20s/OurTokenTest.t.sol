@@ -6,7 +6,6 @@ import {Test} from "forge-std/Test.sol";
 import {DeployOurToken} from "../../script/erc20s/DeployOurToken.s.sol";
 
 contract OurTokenTest is Test {
-
     OurToken token;
     address bob = makeAddr("bob");
     address alice = makeAddr("alice");
@@ -18,6 +17,7 @@ contract OurTokenTest is Test {
         vm.prank(msg.sender);
         token.transfer(bob, 100e18);
     }
+
     function testBobBalance() public {
         assertEq(token.balanceOf(bob), 100e18);
     }

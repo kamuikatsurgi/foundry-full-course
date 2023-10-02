@@ -14,11 +14,13 @@ contract SimpleStorageTest is Test {
         s_SimpleStorage = deploy.run();
         vm.deal(USER, 10 ether);
     }
+
     function testStoreShouldStoreTheNumber() public {
         vm.prank(USER);
         s_SimpleStorage.store(69);
         assertEq(s_SimpleStorage.retrieve(), 69);
     }
+
     function testNumberToNameShouldWork() public {
         vm.prank(USER);
         s_SimpleStorage.addPerson("Krishang", 69);

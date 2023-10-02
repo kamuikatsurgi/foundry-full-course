@@ -5,7 +5,6 @@ import {Script} from "../../lib/forge-std/src/Script.sol";
 import {MockV3Aggregator} from "../../test/FundMe/mocks/MockV3Aggregator.sol";
 
 contract HelperConfig is Script {
-
     uint8 public constant DECIMALS = 8;
     int256 public constant INITIAL_PRICE = 2000e8;
 
@@ -26,16 +25,12 @@ contract HelperConfig is Script {
     }
 
     function getSepoliaConfig() public pure returns (NetworkConfig memory) {
-        NetworkConfig memory sepoliaConfig = NetworkConfig({
-            priceFeed : 0x694AA1769357215DE4FAC081bf1f309aDC325306
-        });
+        NetworkConfig memory sepoliaConfig = NetworkConfig({priceFeed: 0x694AA1769357215DE4FAC081bf1f309aDC325306});
         return sepoliaConfig;
     }
 
     function getEthMainnerConfig() public pure returns (NetworkConfig memory) {
-        NetworkConfig memory ethMainnetConfig = NetworkConfig({
-            priceFeed : 0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419
-        });
+        NetworkConfig memory ethMainnetConfig = NetworkConfig({priceFeed: 0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419});
         return ethMainnetConfig;
     }
 
@@ -45,9 +40,7 @@ contract HelperConfig is Script {
         vm.startBroadcast();
         MockV3Aggregator mockFeed = new MockV3Aggregator(DECIMALS, INITIAL_PRICE);
         vm.stopBroadcast();
-        NetworkConfig memory anvilConfig = NetworkConfig({
-            priceFeed : address(mockFeed)
-        });
+        NetworkConfig memory anvilConfig = NetworkConfig({priceFeed: address(mockFeed)});
         return anvilConfig;
     }
 }

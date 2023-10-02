@@ -20,6 +20,7 @@ contract FundMeTest is Test {
         uint256 version = fundMe.getVersion();
         assertEq(version, 4);
     }
+
     function testFundFailsWithoutEnoughETH() public {
         // vm.expectRevert(); check if the next line fails or not
         vm.expectRevert();
@@ -28,10 +29,11 @@ contract FundMeTest is Test {
 
     modifier funded() {
         vm.prank(USER);
-        fundMe.fund{value:10e18}();
+        fundMe.fund{value: 10e18}();
         _;
     }
-    function testFundUpdates() public funded{
+
+    function testFundUpdates() public funded {
         vm.prank(USER);
         uint256 amountFunded = fundMe.getAddressToAmountFunded(USER);
         assertEq(amountFunded, 10e18);
